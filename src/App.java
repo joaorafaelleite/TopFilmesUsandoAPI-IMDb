@@ -24,9 +24,10 @@ public class App {
 
         // exibir e manipular os dados
         for (Map<String,String> filme : listaDeFilmes) {
+            String urlImagem = filme.get("image");
+            InputStream inputStream = new URL(urlImagem).openStram();
             String titulo = filme.get( "title");
             System.out.println("\u001b[1m\u001b[3m\u001b[48;2;42;228;122m"+ titulo +"\u001b[m");
-            System.out.println(filme.get("image"));
             String rating = filme.get("imDbRating");
             double avaliacao = Math.round(Double.valueOf(rating));
             for(int i=0; i<avaliacao; i++){
